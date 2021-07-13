@@ -1,0 +1,85 @@
+---
+title: "Final Exam"
+author: "Dongxuan Zhang"
+date: "7/12/2021"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+# Introduction
+This is the final exam submitted by Dongxuan Zhang
+
+## Chapter 2 Question 10
+### (a)
+```{r C2Q10a, echo=FALSE}
+library("MASS")
+dim(Boston)
+```
+There is 506 rows and 14 columns in the data set. The 506 rows indicate there is 506 data points. The 14 columns means there are 14 variables or features. 
+
+### (b)  
+```{r C2Q10b, echo=FALSE}
+pairs(~crim+nox+rm+medv, Boston)
+```
+From the pairwise plot of number of rooms vs. median house values, we find out that there is a positive trend between the two variables. The more room numbers, the higher the median house value is.
+Also, from the plot of nitrogen oxide concentration vs. median house value, we see there is a slight negative relationship between the two variables. The lower the nitrogen oxide concentration is, the higher the median house value is. 
+
+### (c)  
+```{r C2Q10c, echo=FALSE}
+pairs(Boston)
+pairs(~crim+black+lstat+dis+medv,Boston)
+```
+From the general pair plots, I saw a slight trend of crime rate within black ratio, lower status ratio, distance from employment centers and median house value. Then I did the pair plots specifically with these features to enlarge the pictures. I find distance from employment center and the median house values has a slight indication of the crime rate. The higher the median house value is, the lower the crime rate. Whereas, the closer from the employment center, the higher the crime rate is. 
+
+### (d)  
+```{r C2Q10d, echo=FALSE}
+attach(Boston)
+plot(crim)
+summary(crim)
+plot(tax)
+summary(tax)
+plot(ptratio)
+summary(ptratio)
+```
+From the plot, I saw there is some towns have extremely high crime rate. The range of the crime goes from 0.00632 to 88.97, which is a very large range. The mean of the crime rate is 3.61 and median is 0.256, which indicates that the crime rate is very right skewed.
+For the tax rate, the range goes from 187 per 10,000 house value to 711 per 10,000 house value.
+For the pupil student ratio, the range goes from 12.60 to 22.00, which is a pretty dense ratio
+
+
+### (e)   
+```{r C2Q10e, echo=FALSE}
+table(chas)
+```
+From the table information, there are 35 suburbs in this data set bound the Charles river
+
+### (f)  
+```{r C2Q10f, echo=FALSE}
+summary(ptratio)
+```
+The median of the pupil student ratio is 19.05.
+
+### (g)  
+```{r C2Q10g, echo=FALSE}
+summary(medv)
+subset(Boston, medv==5)
+summary(Boston)
+```
+I first looked into the summary of the median value of house column to find out the minimum value. Then I subset the data and found that town 399 and 406 has the lowest median house value.
+
+For both town 399 and 406, the crime rate, residential land zone, nitrogen oxide concentration and lower status features are above the 3rd quartile. Whereas, the data for age, accessibility to radial highways, black proportion are among the top lines. Also, the distance to employment center is very close.
+
+### (h)  
+```{r C2Q10h, echo=FALSE}
+hist(rm, breaks=c(3,4,5,6,7,8,9), xlab= "Number of rooms", labels=TRUE)
+summary(subset(Boston, rm>=7))
+summary(subset(Boston, rm>=8))
+```
+
+From the histgram, we see that there is 51+13 = 64 dwelling have more than 7 rooms and there is 13 dwellings have more than 8 rooms.
+
+From the summary, I noticed that the houses with more
+
+
+
